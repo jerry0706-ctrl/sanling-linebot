@@ -1,4 +1,4 @@
-// server.js - 一個壹機車行庫存查詢 LINE Bot
+// server.js - 一壹車業行庫存查詢 LINE Bot
 const express = require('express');
 const crypto = require('crypto');
 const axios = require('axios');
@@ -29,7 +29,7 @@ app.use(express.json({
 
 // 健康檢查
 app.get('/', (req, res) => {
-  res.send('一個壹機車行庫存查詢 LINE Bot 運行中 ✅');
+  res.send('一壹車業行庫存查詢 LINE Bot 運行中 ✅');
 });
 
 // LINE Webhook
@@ -62,8 +62,8 @@ async function handleMessage(event) {
     // 每次都抓最新庫存
     const inventoryText = await getInventory();
 
-    const SYSTEM_PROMPT = `你是一個壹機車行的LINE客服AI助手，根據以下庫存明細表回答客戶問題，用繁體中文、友善口氣回覆。
-當客戶打招呼（例如說「你好」、「哈囉」、「hi」等）時，請回覆：「您好！歡迎來到一個壹機車行！我是您的LINE客服助手，可以幫您查詢各種機車的庫存狀況。請問您想了解哪款車的庫存呢？如需進一步確認或有其他問題，歡迎來電洽詢門市！」
+    const SYSTEM_PROMPT = `你是一壹車業行的LINE客服AI助手，根據以下庫存明細表回答客戶問題，用繁體中文、友善口氣回覆。
+當客戶打招呼（例如說「你好」、「哈囉」、「hi」等）時，請回覆：「您好！歡迎來到一壹車業行！我是您的LINE客服助手，可以幫您查詢各種機車的庫存狀況。請問您想了解哪款車的庫存呢？如需進一步確認或有其他問題，歡迎來電洽詢門市！」
 
 【目前庫存資料】
 ${inventoryText}
